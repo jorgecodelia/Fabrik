@@ -1,0 +1,58 @@
+buildscript {
+	ext {
+		set('springBootV', "3.2.2")
+		set('springDepV', "1.1.4")
+		set('sonarqubeV', "3.5.0.2730")
+		set('spotBugsV', "6.0.7")
+		set('pitestV', "1.15.0")
+		set('pactV', "4.3.10")
+		set('archunitV', "1.2.1")
+		set('openfeignV', "4.1.0")
+		set('openapiV', "1.8.0")
+		set('springcloudV', "Greenwich.SR3")
+		set('springRetryV', "1.2.5.RELEASE")
+		set('springCloudAzureV', "5.9.1")
+		set('ff4jV', "1.9")
+		set('jjwtapiV', "0.12.5")
+	}
+}
+
+plugins {
+	id 'java'
+	id 'application'
+	id 'idea'
+	id 'jacoco'
+	id 'codenarc'
+	id 'checkstyle'
+	id 'pmd'
+	id 'org.springframework.boot' version "${springBootV}"
+	id 'io.spring.dependency-management' version "${springDepV}"
+	id("org.springdoc.openapi-gradle-plugin") version "${openapiV}"
+	id 'info.solidsoft.pitest' version "${pitestV}"
+	id 'au.com.dius.pact' version "${pactV}"
+	id 'org.sonarqube' version "${sonarqubeV}"
+	id 'com.github.spotbugs' version "${spotBugsV}"
+}
+
+apply from: 'gradle/dependency.gradle'
+apply from: 'gradle/quality.gradle'
+apply from: 'gradle/version.gradle'
+apply from: 'gradle/test.gradle'
+
+group = 'com.fabrik.api'
+version = "${majorVer}.${minorVer}.${patchVer}"
+
+repositories {
+	mavenCentral()
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "com.azure.spring:spring-cloud-azure-dependencies:${springCloudAzureV}"
+	}
+}
+
+bootRun {
+	//This is required to accept -Dspring.profiles.active=<PROFILE> or another system property
+	systemProperties = System.properties
+}

@@ -1,0 +1,7 @@
+spring:
+  config:
+    activate:
+      on-profile: mockup
+
+endpoint:
+  fabrik: https://sandbox.platfr.io

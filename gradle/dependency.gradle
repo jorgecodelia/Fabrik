@@ -1,0 +1,23 @@
+dependencies {
+    implementation ("org.springframework.boot:spring-boot-starter:${springBootV}")
+    implementation ("org.springframework.cloud:spring-cloud-starter-openfeign:${openfeignV}")
+    implementation ("org.springframework.boot:spring-boot-starter-actuator:${springBootV}")
+    implementation ("io.jsonwebtoken:jjwt-api:${jjwtapiV}")
+    runtimeOnly ('com.microsoft.sqlserver:mssql-jdbc')
+
+    // Feature Flipping (flag) for Java
+    implementation("org.ff4j:ff4j-spring-boot-starter:${ff4jV}")
+    implementation("org.ff4j:ff4j-core:${ff4jV}")
+    implementation("org.ff4j:ff4j-aop:${ff4jV}")
+
+    /*
+    Testing libraries
+     */
+
+    // Unit
+    testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootV}")
+
+    // Arch Test
+    testImplementation("com.tngtech.archunit:archunit-junit5-api:${archunitV}")
+
+}

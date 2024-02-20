@@ -1,0 +1,13 @@
+spring:
+  config:
+    activate:
+      on-profile: local
+
+endpoint:
+  fabrik: https://sandbox.platfr.io
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full

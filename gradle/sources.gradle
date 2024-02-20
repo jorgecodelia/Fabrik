@@ -1,0 +1,8 @@
+tasks.withType(JavaCompile) {
+    options.warnings = true
+}
+
+Java {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
