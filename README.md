@@ -4,6 +4,14 @@
 
 This documentation outlines the endpoints available in the Fabrik REST API built with Spring Boot 3 and Java 17.
 
+## API Endpoints
+The following endpoints are available:
+
+> - GET /fabrik/api/v1/accounts: Retrieves all accounts.
+> - GET /fabrik/api/v1/{accountId}/balance: Retrieves a balance resource by its account ID.
+> - GET /fabrik/api/v1/{accountId}/transactions?fromAccountingDate=2020-01-01&toAccountingDate=2020-12-01: Retrieves a Transaccion by an account ID and a specific date.
+> - POST /fabrik/api/v1/{accountId}/transfer: Creates a new money transfer.
+
 ## Dependencies
 
 | Resource    | Documentation                           | Report                                         |
@@ -58,14 +66,14 @@ fabrik-api/
 
 The base URL for all endpoints is `http://localhost:8080/api/fabrik/v1`.
 
-## Endpoint Documentation
+## Endpoint Documentation (WIP)
 
 The openApi URL documentation in local environment is `http://localhost:8080/api/fabrik/v1`.
 
 ## BUILD
-
+TODO: implement ArchUnit
 ```sh
-./gradlew clean build test pitest archTest
+./gradlew clean build test pitest
 ```
 
 ## RUN
