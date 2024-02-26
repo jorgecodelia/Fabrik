@@ -10,7 +10,9 @@ dependencies {
     implementation ("org.springframework.boot:spring-boot-starter-validation:${springBootV}")
 
     //Open Api
-    //implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+    implementation ("org.springdoc:springdoc-openapi-starter-common:${openapiV}")
+    implementation ("org.springdoc:springdoc-openapi-starter-webmvc-ui:${openapiV}")
+
 
     // Feature Flipping (flag) for Java
     implementation("org.ff4j:ff4j-spring-boot-starter:${ff4jV}")

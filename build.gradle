@@ -7,7 +7,7 @@ buildscript {
 		set('pitestV', "1.15.0")
 		set('archunitV', "1.2.1")
 		set('openfeignV', "4.1.0")
-		set('openapiV', "1.8.0")
+		set('openapiV', "2.3.0")
 		set('springcloudV', "Greenwich.SR3")
 		set('springRetryV', "1.2.5.RELEASE")
 		set('ff4jV', "1.9")

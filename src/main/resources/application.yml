@@ -3,7 +3,7 @@ spring:
     active: local
 
 server:
-  port: 8083
+  port: 8080
   servlet:
     context-path: /fabrik/api
 
@@ -15,10 +15,10 @@ fabrik:
 endpoint:
   prefix: /api/gbs/banking/v4.0/
 
-cors:
-  allowed-origins: http://localhost:8083
 
 # swagger-ui custom path
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+    operationsSorter: method
+    use-management-port: true

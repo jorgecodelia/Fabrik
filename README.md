@@ -8,19 +8,19 @@ This documentation outlines the endpoints available in the Fabrik REST API built
 
 The following report links work once the api is compiled in local
 
-| Resource    | Documentation                           | Report                                         |
-|:------------|:----------------------------------------|:-----------------------------------------------|
-| Java        | https://openjdk.org/projects/jdk/17/    | No                                             |
-| Gradle      | https://gradle.org/                     | No                                             |
-| Spring Boot | https://spring.io/projects/spring-boot/ | No                                             | 
-| Feign       | https://github.com/OpenFeign/feign/     | No                                             | 
-| JUnit       | https://junit.org/junit5/               | [Report](/build/reports/tests/test/index.html) | 
-| Pitest      | https://pitest.org/                     | [Report](/build/reports/pitest/index.html)     | 
-| ArchUnit    | https://www.archunit.org/               | Yes                                            | 
-| SpotsBugs   | https://github.com/spotbugs/spotbugs/   | Yes                                            | 
-| Checkstyle  | https://checkstyle.sourceforge.io/      | [Report](/build/reports/checkstyle/main.html)  | 
-| PMD         | https://pmd.github.io/                  | [Report](/build/reports/pmd/main.html)         | 
-| Open API    | https://springdoc.org/                  | Yes                                            | 
+| Resource    | Documentation                           | Report                                                           |
+|:------------|:----------------------------------------|:-----------------------------------------------------------------|
+| Java        | https://openjdk.org/projects/jdk/17/    | No                                                               |
+| Gradle      | https://gradle.org/                     | No                                                               |
+| Spring Boot | https://spring.io/projects/spring-boot/ | No                                                               | 
+| Feign       | https://github.com/OpenFeign/feign/     | No                                                               | 
+| JUnit       | https://junit.org/junit5/               | [Report](/build/reports/tests/test/index.html)                   | 
+| Pitest      | https://pitest.org/                     | [Report](/build/reports/pitest/index.html)                       | 
+| ArchUnit    | https://www.archunit.org/               | Yes                                                              | 
+| SpotsBugs   | https://github.com/spotbugs/spotbugs/   | Yes                                                              | 
+| Checkstyle  | https://checkstyle.sourceforge.io/      | [Report](/build/reports/checkstyle/main.html)                    | 
+| PMD         | https://pmd.github.io/                  | [Report](/build/reports/pmd/main.html)                           | 
+| Open API    | https://springdoc.org/                  | [Report](http://localhost:8080/fabrik/api/swagger-ui/index.html) | 
 
 
 ## Project Structure
@@ -65,22 +65,22 @@ The following endpoints are available:
 
 * GET /fabrik/api/v1/accounts: Retrieves all accounts.
 ```sh
-curl --location 'http://localhost:8083/fabrik/api/v1/accounts' \
+curl --location 'http://localhost:8080/fabrik/api/v1/accounts' \
 --header 'Content-Type: application/json'
 ```
 * GET /fabrik/api/v1/{accountId}/balance: Retrieves a balance resource by its account ID.
 ```sh
-curl --location 'http://localhost:8083/fabrik/api/v1/14537780/balance' \
+curl --location 'http://localhost:8080/fabrik/api/v1/14537780/balance' \
 --header 'Content-Type: application/json'
 ```
 * GET /fabrik/api/v1/{accountId}/transactions?fromAccountingDate=2020-01-01&toAccountingDate=2020-12-01: Retrieves a Transaccion by an account ID and a specific date.
 ```sh
-curl --location 'http://localhost:8083/fabrik/api/v1/14537780/transactions?fromAccountingDate=2020-01-01&toAccountingDate=2020-12-01' \
+curl --location 'http://localhost:8080/fabrik/api/v1/14537780/transactions?fromAccountingDate=2020-01-01&toAccountingDate=2020-12-01' \
 --header 'Content-Type: application/json'
 ```
 * POST /fabrik/api/v1/{accountId}/transfer: Creates a new money transfer.
 ```sh
-curl --location 'http://localhost:8083/fabrik/api/v1/14537780/transfer' \
+curl --location 'http://localhost:8080/fabrik/api/v1/14537780/transfer' \
 --header 'Content-Type: application/json' \
 --data '{
     "creditor": {
