@@ -30,7 +30,6 @@ plugins {
 	id 'info.solidsoft.pitest' version "${pitestV}"
 	id 'org.sonarqube' version "${sonarqubeV}"
 	id 'com.github.spotbugs' version "${spotBugsV}"
-	id 'nl.martijndwars.markdown' version '0.2.0'
 }
 
 apply from: 'gradle/dependency.gradle'
