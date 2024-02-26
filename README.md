@@ -124,9 +124,9 @@ curl --location 'http://localhost:8080/fabrik/api/v1/14537780/transfer' \
 }'
 ```
 
-## Endpoint Documentation (WIP)
+## Endpoint Documentation 
 
-The openApi URL documentation in local environment is `http://localhost:8080/api/fabrik/v1`.
+The openApi URL documentation in local environment is `http://localhost:8080/fabrik/api/swagger-ui/index.html`.
 
 ## Build
 ```sh
