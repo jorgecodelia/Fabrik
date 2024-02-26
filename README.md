@@ -6,6 +6,8 @@ This documentation outlines the endpoints available in the Fabrik REST API built
 
 ## Dependencies
 
+The following links work once the api is compiled in local
+
 | Resource    | Documentation                           | Report                                         |
 |:------------|:----------------------------------------|:-----------------------------------------------|
 | Java        | https://openjdk.org/projects/jdk/17/    | No                                             |
