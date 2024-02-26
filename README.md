@@ -72,6 +72,7 @@ curl --location 'http://localhost:8083/fabrik/api/v1/accounts' \
 ```sh
 curl --location 'http://localhost:8083/fabrik/api/v1/14537780/balance' \
 --header 'Content-Type: application/json'
+```
 * GET /fabrik/api/v1/{accountId}/transactions?fromAccountingDate=2020-01-01&toAccountingDate=2020-12-01: Retrieves a Transaccion by an account ID and a specific date.
 ```sh
 curl --location 'http://localhost:8083/fabrik/api/v1/14537780/transactions?fromAccountingDate=2020-01-01&toAccountingDate=2020-12-01' \
