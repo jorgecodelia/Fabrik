@@ -4,14 +4,6 @@
 
 This documentation outlines the endpoints available in the Fabrik REST API built with Spring Boot 3 and Java 17.
 
-## API Endpoints
-The following endpoints are available:
-
-> - GET /fabrik/api/v1/accounts: Retrieves all accounts.
-> - GET /fabrik/api/v1/{accountId}/balance: Retrieves a balance resource by its account ID.
-> - GET /fabrik/api/v1/{accountId}/transactions?fromAccountingDate=2020-01-01&toAccountingDate=2020-12-01: Retrieves a Transaccion by an account ID and a specific date.
-> - POST /fabrik/api/v1/{accountId}/transfer: Creates a new money transfer.
-
 ## Dependencies
 
 | Resource    | Documentation                           | Report                                         |
@@ -65,6 +57,69 @@ fabrik-api/
 ## Base URL
 
 The base URL for all endpoints is `http://localhost:8080/api/fabrik/v1`.
+
+## API Endpoints
+The following endpoints are available:
+
+* GET /fabrik/api/v1/accounts: Retrieves all accounts.
+```sh
+curl --location 'http://localhost:8083/fabrik/api/v1/accounts' \
+--header 'Content-Type: application/json'
+```
+* GET /fabrik/api/v1/{accountId}/balance: Retrieves a balance resource by its account ID.
+```sh
+curl --location 'http://localhost:8083/fabrik/api/v1/14537780/balance' \
+--header 'Content-Type: application/json'
+* GET /fabrik/api/v1/{accountId}/transactions?fromAccountingDate=2020-01-01&toAccountingDate=2020-12-01: Retrieves a Transaccion by an account ID and a specific date.
+```sh
+curl --location 'http://localhost:8083/fabrik/api/v1/14537780/transactions?fromAccountingDate=2020-01-01&toAccountingDate=2020-12-01' \
+--header 'Content-Type: application/json'
+```
+* POST /fabrik/api/v1/{accountId}/transfer: Creates a new money transfer.
+```sh
+curl --location 'http://localhost:8083/fabrik/api/v1/14537780/transfer' \
+--header 'Content-Type: application/json' \
+--data '{
+    "creditor": {
+        "name": "John Doe",
+        "account": {
+            "accountCode": "IT23A0336844430152923804660",
+            "bicCode": "SELBIT2BXXX"
+        },
+        "address": {
+            "address": null,
+            "city": "Rome",
+            "countryCode": "39"
+        }
+    },
+    "executionDate": "2019-04-01",
+    "uri": "REMITTANCE_INFORMATION",
+    "description": "Payment invoice 75/2017",
+    "amount": 800,
+    "currency": "EUR",
+    "isUrgent": false,
+    "isInstant": false,
+    "feeType": "SHA",
+    "feeAccountId": "45685475",
+    "taxRelief": {
+        "taxReliefId": "L449",
+        "isCondoUpgrade": false,
+        "creditorFiscalCode": "56258745832",
+        "beneficiaryType": "NATURAL_PERSON",
+        "naturalPersonBeneficiary": {
+            "fiscalCode1": "MRLFNC81L04A859L",
+            "fiscalCode2": null,
+            "fiscalCode3": null,
+            "fiscalCode4": null,
+            "fiscalCode5": null
+        },
+        "legalPersonBeneficiary": {
+            "fiscalCode": null,
+            "legalRepresentativeFiscalCode": null
+        }
+    }
+}'
+```
 
 ## Endpoint Documentation (WIP)
 
