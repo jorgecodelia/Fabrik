@@ -128,13 +128,12 @@ curl --location 'http://localhost:8083/fabrik/api/v1/14537780/transfer' \
 
 The openApi URL documentation in local environment is `http://localhost:8080/api/fabrik/v1`.
 
-## BUILD
-TODO: implement ArchUnit
+## Build
 ```sh
 ./gradlew clean build test pitest
 ```
 
-## RUN
+## Run
 
 ```sh
 ./gradlew bootRun -Dspring.profiles.active=local

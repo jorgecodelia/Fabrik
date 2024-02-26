@@ -32,7 +32,7 @@ dependencies {
     // Test pitest
     testImplementation 'com.arcmutate:arcmutate-spring:1.0.0'
 
-    // Test Arch
+    // Test Arch unit
     testImplementation("com.tngtech.archunit:archunit-junit5-api:${archunitV}")
 
 }
