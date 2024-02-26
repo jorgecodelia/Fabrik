@@ -9,7 +9,8 @@ sonarqube {
 
 spotbugs {
     ignoreFailures = true
-    spotbugsTest.enabled = false
+    spotbugsTest.enabled = true
+    showProgress = true
 }
 
 pmd {

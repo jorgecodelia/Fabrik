@@ -1,23 +1,38 @@
 dependencies {
-    implementation ("org.springframework.boot:spring-boot-starter:${springBootV}")
+    implementation ("org.springframework.boot:spring-boot-starter-web:${springBootV}")
     implementation ("org.springframework.cloud:spring-cloud-starter-openfeign:${openfeignV}")
-    implementation ("org.springframework.boot:spring-boot-starter-actuator:${springBootV}")
+    implementation ("org.springframework.boot:spring-boot-starter-validation:${springBootV}")
     implementation ("io.jsonwebtoken:jjwt-api:${jjwtapiV}")
-    runtimeOnly ('com.microsoft.sqlserver:mssql-jdbc')
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Spring security
+    implementation ("org.springframework.boot:spring-boot-starter-security:${springBootV}")
+    implementation ("org.springframework.boot:spring-boot-starter-validation:${springBootV}")
+
+    //Open Api
+    //implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 
     // Feature Flipping (flag) for Java
     implementation("org.ff4j:ff4j-spring-boot-starter:${ff4jV}")
     implementation("org.ff4j:ff4j-core:${ff4jV}")
     implementation("org.ff4j:ff4j-aop:${ff4jV}")
 
+    //JPA
+    implementation ("org.springframework.boot:spring-boot-starter-data-jpa:${springBootV}")
+    //H2
+    implementation 'com.h2database:h2:2.2.224'
+
     /*
     Testing libraries
      */
 
-    // Unit
+    // Test Unit
     testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootV}")
 
-    // Arch Test
+    // Test pitest
+    testImplementation 'com.arcmutate:arcmutate-spring:1.0.0'
+
+    // Test Arch
     testImplementation("com.tngtech.archunit:archunit-junit5-api:${archunitV}")
 
 }

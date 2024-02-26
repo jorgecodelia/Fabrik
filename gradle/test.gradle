@@ -3,28 +3,16 @@ tasks.named('test') {
     useJUnitPlatform()
     jacocoTestReport
 }
-/*
-https://spotbugs.github.io/
- */
 
-
-/*
-https://pitest.org/quickstart/
- */
 pitest {
     pitestVersion = "${pitestV}"
     junit5PluginVersion = '1.2.1'
     targetClasses = ['com.fabrik.*']
     excludedClasses = [
-            'com.fabrik.api.util.*'
+            'com.fabrik.api.common.*'
     ]
     threads = 4
-    outputFormats = ['XML', 'HTML']
-    coverageThreshold = 0
+    outputFormats = ['HTML']
+    coverageThreshold = 60
     timestampedReports = false
 }
-
-
-/*
-https://www.archunit.org/getting-started
- */

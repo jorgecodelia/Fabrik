@@ -1,24 +1,24 @@
 spring:
-  application:
-    name: fabrik-api-v1
   profiles:
     active: local
-  main:
-    web-application-type: none
 
 server:
+  port: 8083
   servlet:
-    context-path: /api/fabrik/v1
+    context-path: /fabrik/api
 
-springdoc:
-  show-actuator: true
-  use-management-port: true
-  swagger-ui:
-    operationsSorter: method
-    path: /swagger-ui-custom.html
-  api-docs:
-    path: /api-docs
-
+fabrik:
+  api-key: "FXOVVXXHVCPVPBZXIJOBGUGSKHDNFRRQJP"
+  auth-schema: "S2S"
+  time-zone: "Europe/Rome"
 
 endpoint:
   prefix: /api/gbs/banking/v4.0/
+
+cors:
+  allowed-origins: http://localhost:8083
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html

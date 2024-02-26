@@ -1,18 +1,18 @@
 package com.fabrik.api.controller;
 
-import com.fabrik.api.domain.Account;
-import com.fabrik.api.domain.Address;
-import com.fabrik.api.domain.Amount;
-import com.fabrik.api.domain.Balance;
-import com.fabrik.api.domain.Beneficiary;
-import com.fabrik.api.domain.Creditor;
-import com.fabrik.api.domain.Debtor;
-import com.fabrik.api.domain.Fee;
-import com.fabrik.api.domain.TaxRelief;
-import com.fabrik.api.domain.TransactionRecord;
-import com.fabrik.api.domain.TransactionType;
-import com.fabrik.api.domain.TransferDataRequest;
-import com.fabrik.api.domain.TransferDataResponse;
+import com.fabrik.api.common.domain.Account;
+import com.fabrik.api.common.domain.Address;
+import com.fabrik.api.common.domain.Amount;
+import com.fabrik.api.common.domain.Balance;
+import com.fabrik.api.common.domain.Beneficiary;
+import com.fabrik.api.common.domain.Creditor;
+import com.fabrik.api.common.domain.Debtor;
+import com.fabrik.api.common.domain.Fee;
+import com.fabrik.api.common.domain.TaxRelief;
+import com.fabrik.api.common.domain.TransferDataRequest;
+import com.fabrik.api.common.domain.TransferDataResponse;
+import com.fabrik.api.common.domain.TransactionResponse;
+import com.fabrik.api.common.domain.TransactionType;
 import com.fabrik.api.service.FabrikService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -44,7 +44,7 @@ class FabrikControllerTest {
     public void shouldGetAccounts() {
         Account account = new Account("453534", "AICKSDCA123123", "QEW@", "W455R",
                 "IT", "WSF3", "RE33", "123321", "John",
-                "SomeProductName", "HolderName", "2022-01-01", CURRENCY);
+                "SomeProductName", "HolderName", "2022-01-01", CURRENCY, null, null);
         Mockito.when(fabrikService.getAccounts()).thenReturn(List.of(account));
         ResponseEntity<List<Account>> responseEntity = fabrikController.getAccounts();
         Assertions.assertNotNull(responseEntity);
@@ -63,10 +63,10 @@ class FabrikControllerTest {
     @Test
     public void shouldGetTransactions() {
         TransactionType transactionType = new TransactionType("1A", "2003");
-        TransactionRecord transactionRecord = new TransactionRecord("123665", "1234",
+        TransactionResponse transactionResponse = new TransactionResponse("123665", "1234",
                 FROM_DATE, TO_DATE, transactionType, 200, CURRENCY, "Hello");
-        Mockito.when(fabrikService.getTransactionsByDate(ACCOUNT_ID, FROM_DATE, TO_DATE)).thenReturn(List.of(transactionRecord));
-        ResponseEntity<List<TransactionRecord>> responseEntity = fabrikController.getTransactionsByDate(ACCOUNT_ID, FROM_DATE, TO_DATE);
+        Mockito.when(fabrikService.getTransactionsByDate(ACCOUNT_ID, FROM_DATE, TO_DATE)).thenReturn(List.of(transactionResponse));
+        ResponseEntity<List<TransactionResponse>> responseEntity = fabrikController.getTransactionsByDate(ACCOUNT_ID, FROM_DATE, TO_DATE);
         Assertions.assertNotNull(responseEntity);
         Assertions.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
@@ -75,10 +75,10 @@ class FabrikControllerTest {
     public void shouldGenerateTransfer() {
         Account account = new Account("123", "AICKSDCA123123", "QEW@", "W455R",
                 "IT", "WSF3", "RE33", "123321", "Susana Rossi",
-                "SomeProductName", "HolderName", "2020-01-01", CURRENCY);
+                "SomeProductName", "HolderName", "2020-01-01", CURRENCY, null, null);
         Address address = new Address("via Magno 23", "Rome", "39");
-        Beneficiary naturalPersonBeneficiary = new Beneficiary("EWEFSDF123123", "FVFW4423434");
-        Beneficiary legalPersonBeneficiary = new Beneficiary("ACBBB4532121", "OI039234");
+        Beneficiary naturalPersonBeneficiary = new Beneficiary("EWEFSDF123123", "FVFW4423434", null, null, null, null);
+        Beneficiary legalPersonBeneficiary = new Beneficiary("ACBBB4532121", "OI039234", null, null, null, null);
         TaxRelief taxRelief = new TaxRelief("123r3", true, "EWEFSDF123123",
                 "Some-type", naturalPersonBeneficiary, legalPersonBeneficiary);
         Creditor creditor = new Creditor("Susana", account, address);
@@ -87,7 +87,7 @@ class FabrikControllerTest {
                 CURRENCY, true, true, "OG3", "34FFFEEW5", taxRelief);
         Account accountFranz = new Account("123", "AICKSDCA123123", "QEW@", "W455R",
                 "IT", "WSF3", "RE33", "123321", "Susana Rossi",
-                "SomeProductName", "HolderName", "2020-01-01", CURRENCY);
+                "SomeProductName", "HolderName", "2020-01-01", CURRENCY, null, null);
         Debtor debtor = new Debtor("Franz", accountFranz);
         Amount amount = new Amount(100, CURRENCY, 600, CURRENCY, TO_DATE, 2);
         Fee fee = new Fee("001", "a fee", 2000, CURRENCY);

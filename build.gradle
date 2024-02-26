@@ -5,15 +5,14 @@ buildscript {
 		set('sonarqubeV', "3.5.0.2730")
 		set('spotBugsV', "6.0.7")
 		set('pitestV', "1.15.0")
-		set('pactV', "4.3.10")
 		set('archunitV', "1.2.1")
 		set('openfeignV', "4.1.0")
 		set('openapiV', "1.8.0")
 		set('springcloudV', "Greenwich.SR3")
 		set('springRetryV', "1.2.5.RELEASE")
-		set('springCloudAzureV', "5.9.1")
 		set('ff4jV', "1.9")
 		set('jjwtapiV', "0.12.5")
+		set('lombookV', "8.6")
 	}
 }
 
@@ -25,13 +24,13 @@ plugins {
 	id 'codenarc'
 	id 'checkstyle'
 	id 'pmd'
+	id("io.freefair.lombok") version "${lombookV}"
 	id 'org.springframework.boot' version "${springBootV}"
 	id 'io.spring.dependency-management' version "${springDepV}"
-	id("org.springdoc.openapi-gradle-plugin") version "${openapiV}"
 	id 'info.solidsoft.pitest' version "${pitestV}"
-	id 'au.com.dius.pact' version "${pactV}"
 	id 'org.sonarqube' version "${sonarqubeV}"
 	id 'com.github.spotbugs' version "${spotBugsV}"
+	id 'nl.martijndwars.markdown' version '0.2.0'
 }
 
 apply from: 'gradle/dependency.gradle'
@@ -46,13 +45,8 @@ repositories {
 	mavenCentral()
 }
 
-dependencyManagement {
-	imports {
-		mavenBom "com.azure.spring:spring-cloud-azure-dependencies:${springCloudAzureV}"
-	}
-}
-
 bootRun {
 	//This is required to accept -Dspring.profiles.active=<PROFILE> or another system property
 	systemProperties = System.properties
 }
+
