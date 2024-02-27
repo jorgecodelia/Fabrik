@@ -37,6 +37,7 @@ apply from: 'gradle/dependency.gradle'
 apply from: 'gradle/quality.gradle'
 apply from: 'gradle/version.gradle'
 apply from: 'gradle/test.gradle'
+apply from: 'gradle/sources.gradle'
 
 group = 'com.fabrik.api'
 version = "${majorVer}.${minorVer}.${patchVer}"

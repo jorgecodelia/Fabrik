@@ -2,7 +2,7 @@ tasks.withType(JavaCompile) {
     options.warnings = true
 }
 
-Java {
-    sourceCompatibility = '17'
-    targetCompatibility = '17'
+compileJava {
+    sourceCompatibility = 17
+    targetCompatibility = 17
 }
