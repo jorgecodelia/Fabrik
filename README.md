@@ -33,18 +33,16 @@ fabrik-api/
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── yourcompany/
-│   │   │           └── projectname/
-│   │   │               ├── client/                     // Api feign client
-│   │   │               ├── common/
-│   │   │               │   ├── config/
-│   │   │               │   ├── domain/                 // Api general POJO
-│   │   │               │   ├── exception/              // Global custom exceptions
-│   │   │               │   └── Util/                   // Util
-│   │   │               ├── controller/                 // REST API controllers
-│   │   │               ├── service/                    // Service layer
-│   │   │               └── Application.java            // Main class to run the application
+│   │   │   └── com.fabrik.api/
+│   │   │      ├── client/                              // Api feign client
+│   │   │      ├── common/
+│   │   │      │   ├── config/                          // General configurations
+│   │   │      │   ├── domain/                          // Api general POJO
+│   │   │      │   ├── exception/                       // Global custom exceptions
+│   │   │      │   └── Util/                            // Util
+│   │   │      ├── controller/                          // REST API controllers
+│   │   │      ├── service/                             // Service layer
+│   │   │      └── Application.java                     // Main class to run the application
 │   │   │
 │   │   └── resources/                                  // Project Resources
 │   │
