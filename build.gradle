@@ -1,35 +1,36 @@
 buildscript {
-	ext {
-		set('springBootV', "3.2.2")
-		set('springDepV', "1.1.4")
-		set('sonarqubeV', "3.5.0.2730")
-		set('spotBugsV', "6.0.7")
-		set('pitestV', "1.15.0")
-		set('archunitV', "1.2.1")
-		set('openfeignV', "4.1.0")
-		set('openapiV', "2.3.0")
-		set('springcloudV', "Greenwich.SR3")
-		set('springRetryV', "1.2.5.RELEASE")
-		set('ff4jV', "1.9")
-		set('jjwtapiV', "0.12.5")
-		set('lombookV', "8.6")
-	}
+    ext {
+        set('springBootV', "3.2.2")
+        set('springDepV', "1.1.4")
+        set('sonarqubeV', "3.5.0.2730")
+        set('spotBugsV', "6.0.7")
+        set('pitestV', "1.15.0")
+        set('pitestArcmutateV', "1.0.0")
+        set('archunitV', "1.2.1")
+        set('openfeignV', "4.1.0")
+        set('openapiV', "2.3.0")
+        set('ff4jV', "1.9")
+        set('jjwtapiV', "0.12.5")
+        set('lombookV', "8.6")
+        set('gsonV', "2.10.1")
+        set('h2V', "2.2.224")
+    }
 }
 
 plugins {
-	id 'java'
-	id 'application'
-	id 'idea'
-	id 'jacoco'
-	id 'codenarc'
-	id 'checkstyle'
-	id 'pmd'
-	id("io.freefair.lombok") version "${lombookV}"
-	id 'org.springframework.boot' version "${springBootV}"
-	id 'io.spring.dependency-management' version "${springDepV}"
-	id 'info.solidsoft.pitest' version "${pitestV}"
-	id 'org.sonarqube' version "${sonarqubeV}"
-	id 'com.github.spotbugs' version "${spotBugsV}"
+    id 'java'
+    id 'application'
+    id 'idea'
+    id 'jacoco'
+    id 'codenarc'
+    id 'checkstyle'
+    id 'pmd'
+    id 'io.freefair.lombok' version "${lombookV}"
+    id 'org.springframework.boot' version "${springBootV}"
+    id 'io.spring.dependency-management' version "${springDepV}"
+    id 'info.solidsoft.pitest' version "${pitestV}"
+    id 'org.sonarqube' version "${sonarqubeV}"
+    id 'com.github.spotbugs' version "${spotBugsV}"
 }
 
 apply from: 'gradle/dependency.gradle'
@@ -41,11 +42,16 @@ group = 'com.fabrik.api'
 version = "${majorVer}.${minorVer}.${patchVer}"
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 bootRun {
-	//This is required to accept -Dspring.profiles.active=<PROFILE> or another system property
-	systemProperties = System.properties
+    //This is required to accept -Dspring.profiles.active=<PROFILE> or another system property
+    systemProperties = System.properties
 }
 
+build {
+    doLast {
+        println "Build completed successfully JORGE!"
+    }
+}
