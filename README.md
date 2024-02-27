@@ -128,6 +128,14 @@ curl --location 'http://localhost:8080/fabrik/api/v1/14537780/transfer' \
 
 The openApi URL documentation in local environment is `http://localhost:8080/fabrik/api/swagger-ui/index.html`.
 
+## Important gradle tasks
+```sh
+- `clean`  - clean build results
+- `build`  - build public artifact
+- `test`   - run unit tests and arch unit tests
+- `pitest` - run pitest mutation test
+```
+
 ## Build
 ```sh
 ./gradlew clean build test pitest
@@ -138,3 +146,6 @@ The openApi URL documentation in local environment is `http://localhost:8080/fab
 ```sh
 ./gradlew bootRun -Dspring.profiles.active=local
 ```
+
+## License
+This Api is distributed under the terms of the MIT License. See the [license](license.md) for details.
